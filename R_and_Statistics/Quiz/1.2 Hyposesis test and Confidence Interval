@@ -1,0 +1,57 @@
+##### 1.Sample Mean Confidence Interval
+```r
+#calculate confidence interval 
+library('Rmisc')
+x <- c(97,121,140,78,99,145,108,135,118,121,100)
+con_int1 <- CI(x,ci = 0.95)
+con_int1
+con_int2 <- CI(x,ci = 0.90)
+con_int2
+```
+##### 2.one sample test of population mean
+```r
+#the hybird car example
+
+# confidence interval 
+# P(x_bar - th * sd_error <= u0 <= x_bar + th * sd_error) = 1 - alpha
+#define mean as x_bar
+x_bar <- 47
+#
+sd_error <- 5/sqrt(25)
+th <-qt(0.975, 24)
+#left side critical value
+left <-x_bar -th * sd_error
+right <-x_bar + th * sd_error
+left; right
+
+# Confidence interval for one-sided test, 95% CI 
+x_bar <-47
+th <-qt(0.95, 24)
+right <-x_bar + th * sd_error
+right
+
+##### 3. 
+x_bar <- 47
+u0 <- 50
+n <- 26
+df <- n-1
+std_s <- 5
+alpha <- 0.05
+sd_error <- std_s/sqrt(n)
+th <-qt(1-alpha/2, df)
+#test statistic
+t <- (x_bar-u0)/sd_error
+t
+#calculate p value
+pt(t,df)
+#confidence interval 95% CI
+left <-x_bar -th * sd_error
+right <-x_bar + th * sd_error
+left;right
+#Confidence interval for one-sided test 95% CI 
+th_2 <-qt(1-alpha, df)
+right <-x_bar + th_2 * sd_error
+right
+```
+
+
